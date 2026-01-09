@@ -33,8 +33,6 @@ Regularly commit your changes (once checked) to your github repository, from VS 
 
 Create a Django project with `django-admin startproject yourproject .` where `yourproject` is your project name without space.
 
-Make the project your current directory with `cd yourproject`. 
-
 A Django project is made of applications which act as modules for grouping related features. Create first (maybe single) with `django-admin startapp yourapp .` where `yourapp` is the name of your first module.
 
 Activate the app in `settings.py` by adding `"yourapp"` it in the `INSTALLED_APPS` list.
@@ -49,14 +47,7 @@ Create your first administrator to access the admin panel by :
 
 ### Launch server
 
-Add following lines in `settings.py` after `ALLOWED_HOSTS = []`:
-```py
-if 'CODESPACE_NAME' in os.environ:
-    codespace_name = os.getenv("CODESPACE_NAME")
-    codespace_domain = os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
-
-    CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
-```
+Add the line `CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']` at the end of `settings.py`.
 
 Use this command : `python manage.py runserver` .
 
