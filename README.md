@@ -49,6 +49,15 @@ Create your first administrator to access the admin panel by :
 
 ### Launch server
 
+Add following lines in `settings.py` after `ALLOWED_HOSTS = []`:
+```py
+if 'CODESPACE_NAME' in os.environ:
+    codespace_name = os.getenv("CODESPACE_NAME")
+    codespace_domain = os.getenv("GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN")
+
+    CSRF_TRUSTED_ORIGINS = [f'https://{codespace_name}-8000.{codespace_domain}']
+```
+
 Use this command : `python manage.py runserver` .
 
 Add `/admin` to the url of the opening tab to go to the login page and authenticate as admin thanks to the newly created user.
