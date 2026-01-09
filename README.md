@@ -31,9 +31,11 @@ Regularly commit your changes (once checked) to your github repository, from VS 
 
 ### Django project creation
 
-Create a Django project with `django-admin startproject yourproject .`.
+Create a Django project with `django-admin startproject yourproject .` where `yourproject` is your project name without space.
 
-A Django project is made of applications which act as modules for grouping related features. Create first (maybe single) with `django-admin startapp yourapp .`
+Make the project your current directory with `cd yourproject`. 
+
+A Django project is made of applications which act as modules for grouping related features. Create first (maybe single) with `django-admin startapp yourapp .` where `yourapp` is the name of your first module.
 
 Activate the app in `settings.py` by adding `"yourapp"` it in the `INSTALLED_APPS` list.
 
